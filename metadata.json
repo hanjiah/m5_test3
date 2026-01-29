@@ -1,5 +1,5 @@
 {
-  "name": "Luxury Gold & Slate Event Landing",
-  "description": "A high-end, responsive event coupon landing page featuring a sophisticated Amber and Slate color palette, smooth scroll animations, and interactive coupon issuance.",
+  "name": "Luxury Gold & Slate Event Landing (Vanilla)",
+  "description": "A high-end, high-performance responsive event landing page built with pure HTML, Tailwind CSS, and Vanilla JavaScript for maximum Vercel compatibility.",
   "requestFramePermissions": []
 }
