@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko" class="scroll-smooth">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CK3ZF1R49R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CK3ZF1R49R');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUXE REWARD - Exclusive Event</title>
@@ -254,7 +264,7 @@
                     <h4 class="text-white font-serif font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-4 text-slate-400 text-sm font-light">
                         <li><a href="#" class="hover:text-amber-500 transition-colors">About Brand</a></li>
-                        <li><a href="#" className="hover:text-amber-500 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-amber-500 transition-colors">Privacy Policy</a></li>
                         <li><a href="#" class="hover:text-amber-500 transition-colors">Terms of Service</a></li>
                         <li><a href="#" class="hover:text-amber-500 transition-colors">Support Center</a></li>
                     </ul>
@@ -312,45 +322,47 @@
         const issueBtn = document.getElementById('issue-btn');
         const couponContainer = document.getElementById('coupon-container');
 
-        issueBtn.addEventListener('click', () => {
-            // Set Loading State
-            issueBtn.disabled = true;
-            issueBtn.innerHTML = `
-                <svg class="animate-spin h-6 w-6 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <span>Processing Excellence...</span>
-            `;
-            issueBtn.classList.replace('bg-amber-500', 'bg-slate-800');
-            issueBtn.classList.replace('text-slate-950', 'text-slate-500');
-
-            // Simulate Network Delay
-            setTimeout(() => {
-                // Success State Content
-                couponContainer.innerHTML = `
-                    <div class="bg-slate-900 border-2 border-amber-500 rounded-2xl p-8 shadow-2xl shadow-amber-500/10 text-center space-y-4 animate-fade-in">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-amber-500/10 rounded-full mb-2">
-                            <i data-lucide="check-circle" class="text-amber-500 w-10 h-10"></i>
-                        </div>
-                        <h3 class="text-2xl font-serif font-bold text-white">Coupon Issued Successfully</h3>
-                        <p class="text-slate-400">Your exclusive code: <span class="text-amber-400 font-mono font-bold tracking-widest text-lg">LUXE-2024-EXCL</span></p>
-                        <p class="text-xs text-slate-500 pt-4">Expires in 30 days. Use at checkout.</p>
-                    </div>
+        if (issueBtn) {
+            issueBtn.addEventListener('click', () => {
+                // Set Loading State
+                issueBtn.disabled = true;
+                issueBtn.innerHTML = `
+                    <svg class="animate-spin h-6 w-6 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Processing Excellence...</span>
                 `;
-                
-                // Re-initialize icon for new content
-                lucide.createIcons();
+                issueBtn.classList.replace('bg-amber-500', 'bg-slate-800');
+                issueBtn.classList.replace('text-slate-950', 'text-slate-500');
 
-                // Trigger Confetti
-                confetti({
-                    particleCount: 150,
-                    spread: 70,
-                    origin: { y: 0.6 },
-                    colors: ['#f59e0b', '#fbbf24', '#ffffff']
-                });
-            }, 2000);
-        });
+                // Simulate Network Delay
+                setTimeout(() => {
+                    // Success State Content
+                    couponContainer.innerHTML = `
+                        <div class="bg-slate-900 border-2 border-amber-500 rounded-2xl p-8 shadow-2xl shadow-amber-500/10 text-center space-y-4 animate-fade-in">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-amber-500/10 rounded-full mb-2">
+                                <i data-lucide="check-circle" class="text-amber-500 w-10 h-10"></i>
+                            </div>
+                            <h3 class="text-2xl font-serif font-bold text-white">Coupon Issued Successfully</h3>
+                            <p class="text-slate-400">Your exclusive code: <span class="text-amber-400 font-mono font-bold tracking-widest text-lg">LUXE-2024-EXCL</span></p>
+                            <p class="text-xs text-slate-500 pt-4">Expires in 30 days. Use at checkout.</p>
+                        </div>
+                    `;
+                    
+                    // Re-initialize icon for new content
+                    lucide.createIcons();
+
+                    // Trigger Confetti
+                    confetti({
+                        particleCount: 150,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                        colors: ['#f59e0b', '#fbbf24', '#ffffff']
+                    });
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
